@@ -17,7 +17,8 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 100%;
+  width: 720px;
+  height: 500PX;
 }
 
 h1 {
@@ -26,7 +27,7 @@ h1 {
 }
 
 h2 {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   margin-bottom: 10px;
 }
@@ -38,11 +39,13 @@ a {
 
 #console {
   position: absolute;
-  width: 240px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  width: 220px;
   margin: 10px;
   padding: 10px 20px;
   background-color: white;
 }
+
 .session {
   margin-bottom: 20px;
 }
@@ -50,6 +53,7 @@ a {
 .row {
   height: 12px;
   width: 100%;
+  padding-bottom: 10px;
 }
 
 .colors {
@@ -69,76 +73,77 @@ a {
   <div id='map'></div>
 <div id='console'>
   <h1>Urban Renewal Plans</h1>
+  
   <div class='session'>
-  	<h2>Casualty</h2>
-  	<div class='row colors'>
-  	</div>
-  	<div class='row labels'>
-    	<div class='label'>0</div>
-    	<div class='label'>1</div>
-    	<div class='label'>2</div>
-    	<div class='label'>3</div>
-    	<div class='label'>4</div>
-    	<div class='label'>5+</div>
+  <h2>Year - Name</h2>
+  <div class='row' id='filters'>
+    <input id='checkbox' type='checkbox' name='year' value='1963'>
+    <label for='1963'>1963 - Fort Greene</label>
   </div>
-    <div class='session' id='sliderbar'>
-    	<h2>Hour: <label id='active-hour'>12PM</label></h2>
- 	  <input id='slider' class='row' type='range' min='0' max='23' step='1' value='12' />
-    </div>
+  <div class='row' id='filters'>
+    <input id='checkbox' type='checkbox' name='year' value='1968'>
+    <label for='1968'>1968 - Atlantic Terminal</label>
   </div>
+  <div class='row' id='filters'>
+    <input id='checkbox' type='checkbox' name='year' value='1969'>
+    <label for='1969'>1969 - Lindsay Proposal</label>
+
+  </div>
+  <div class='row' id='filters'>
+    <input id='checkbox' type='checkbox' name='year' value='1970'>
+    <label for='1970'>1970 - Brooklyn Center</label>
+  </div>
+  <div class='row' id='filters'>
+    <input id='checkbox' type='checkbox' name='year' value='1983'>
+    <label for='1983'>1983 - RPA</label>
+  </div>
+  <div class='row' id='filters'>
+    <input id='checkbox' type='checkbox' name='year' value='2003' checked='checked'>
+    <label for='2003'>2003 - Atlantic Yards</label>
+  </div>
+  <div class='row' id='filters'>
+    <input id='checkbox' type='checkbox' name='year' value='2007'>
+    <label for='2007'>2007 - Unity Plan</label>
+  </div>
+  <div class='row' id='filters'>
+    <input id='checkbox' type='checkbox' name='year' value='2009'>
+    <label for='2009'>2009 - PH Historic Dist</label>
+  </div>
+
+</div>
 </div>
   <script>
     mapboxgl.accessToken = 'pk.eyJ1Ijoia2VlbGJuIiwiYSI6ImNqaWVseGZjZzA3emMzdnAxM296OTFjNG8ifQ.W2j9Y2mz4t6vGRyKJk_Nyw';
     var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/keelbn/cjixxs4x02nlc2rmkg73e5uhg',
-      center: [-73.978409, 40.685313],
-      zoom: 13.5
+      center: [-73.995, 40.68520],
+      zoom: 12.5
     });
 
-   map.on('load', function() {
+map.on('load', function() {
     map.addLayer({
-      id: 'collisions',
-      type: 'circle',
+      id: 'areas',
+      type: 'fill',
       source: {
         type: 'geojson',
-        data: './collisions1601.geojson' // replace this with the url of your own geojson
+        data: 'http://bennkeel.github.io/AYPP_BkDevHistory/features.geojson' // replace this with the url of your own geojson
       },
       paint: {
-        'circle-radius': [
+        'fill-color': [
           'interpolate',
           ['linear'],
-          ['number', ['get', 'Casualty']],
-          0, 4,
-          5, 24
+          ['number', ['get', 'date']],
+          1963, '#2DC4B2',
+          1980, '#3BB3C3',
+          1990, '#669EC4',
+          2000, '#8B88B6',
+          2012, '#A2719B',
         ],
-        'circle-color': [
-          'interpolate',
-          ['linear'],
-          ['number', ['get', 'Casualty']],
-          0, '#2DC4B2',
-          1, '#3BB3C3',
-          2, '#669EC4',
-          3, '#8B88B6',
-          4, '#A2719B',
-          5, '#AA5E79'
-        ],
-        'circle-opacity': 0.8
-      }
-    }, 'admin-2-boundaries-dispute')
-    document.getElementById('slider').addEventListener('input', function(e) {
-      var hour = parseInt(e.target.value);
-      // update the map
-      map.setFilter('collisions', ['==', ['number', ['get', 'Hour']], hour]);
-
-      // converting 0-23 hour to AMPM format
-      var ampm = hour >= 12 ? 'PM' : 'AM';
-      var hour12 = hour % 12 ? hour % 12 : 12;
-
-      // update text in the UI
-       document.getElementById('active-hour').innerText = hour12 + ampm;
-    });
-    ;
+        'fill-opacity': 0.5
+      },
+      'filter': ['==', ['number', ['get', 'date']], 2003]
+    }, 'admin-2-boundaries-dispute',);
   });
 
   </script>
