@@ -3,7 +3,7 @@
     {
       "type": "Feature",
       "properties": {
-        "date": 2003,
+        "date": 2006,
         "name": "Atlantic Yards",
         "outline": "true"
       },
@@ -258,7 +258,7 @@
     {
       "type": "Feature",
       "properties": {
-        "date": 2003,
+        "date": 2006,
         "outline": "true",
         "name": "Atlantic Yards"
       },
