@@ -146,7 +146,7 @@ map.on('load', function() {
       type: 'fill',
       source: {
         type: 'geojson',
-        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BkUrbRenewal.geojson' 
+        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
       }, 
       paint: {
         'fill-color': '#349946',
@@ -162,7 +162,7 @@ map.on('load', function() {
       type: 'fill',
       source: {
         type: 'geojson',
-        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BkUrbRenewal.geojson' 
+        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
       }, 
       paint: {
         'fill-color': '#f8991d',
@@ -178,7 +178,7 @@ map.on('load', function() {
       type: 'fill',
       source: {
         type: 'geojson',
-        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BkUrbRenewal.geojson' 
+        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
       }, 
       paint: {
         'fill-color': '#99ca3c',
@@ -195,7 +195,7 @@ map.on('load', function() {
       type: 'fill',
       source: {
         type: 'geojson',
-        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BkUrbRenewal.geojson' 
+        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
       }, 
       paint: {
         'fill-color': '#48c2c5',
@@ -212,7 +212,7 @@ map.on('load', function() {
       type: 'fill',
       source: {
         type: 'geojson',
-        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BkUrbRenewal.geojson' 
+        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
       }, 
       paint: {
         'fill-color': '#427db0',
@@ -228,7 +228,7 @@ map.on('load', function() {
       type: 'fill',
       source: {
         type: 'geojson',
-        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BkUrbRenewal.geojson' 
+        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
       }, 
       paint: {
         'fill-color': '#986828',
@@ -244,7 +244,7 @@ map.on('load', function() {
       type: 'fill',
       source: {
         type: 'geojson',
-        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BkUrbRenewal.geojson' 
+        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
       }, 
       paint: {
         'fill-color': '#d3d3d3',
@@ -260,7 +260,7 @@ map.on('load', function() {
       type: 'fill',
       source: {
         type: 'geojson',
-        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BkUrbRenewal.geojson' 
+        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
       }, 
       paint: {
         'fill-color': '#b86bac',
@@ -272,11 +272,26 @@ map.on('load', function() {
      'admin-2-boundaries-dispute',);
 
       map.addLayer({
+      id: 'streets2007',
+      type: 'line',
+      source: {
+        type: 'geojson',
+        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
+      }, 
+      paint: {
+            "line-color": "#b86bac",
+            "line-width": 4
+      },
+      'filter': ['==', ['number', ['get', 'date']], 0]
+      },
+     'admin-2-boundaries-dispute',);
+
+      map.addLayer({
       id: 'area2009',
       type: 'fill',
       source: {
         type: 'geojson',
-        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BkUrbRenewal.geojson' 
+        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
       }, 
       paint: {
         'fill-color': '#e43225',
@@ -355,9 +370,11 @@ document.getElementById('checkbox8').addEventListener('change', function(e) {
       // update the map
       if (this.checked) 
       { map.setFilter('area2007', ['==', ['number', ['get', 'date']], 2007]);
+       map.setFilter('streets2007', ['==', ['number', ['get', 'date']], 2007]);
         this.parentNode.style.backgroundColor = "#cfb0d0";
       }  else
       { map.setFilter('area2007', ['==', ['number', ['get', 'date']], 0]);
+      map.setFilter('streets2007', ['==', ['number', ['get', 'date']], 0]);
         this.parentNode.style.backgroundColor = "transparent";
       }});
 document.getElementById('checkbox9').addEventListener('change', function(e) {
