@@ -270,6 +270,21 @@ map.on('load', function() {
       'filter': ['==', ['number', ['get', 'date']], 0]
       },
      'admin-2-boundaries-dispute',);
+    
+     map.addLayer({
+      id: 'street2007',
+      type: 'line',
+      source: {
+        type: 'geojson',
+        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
+      }, 
+      paint: {
+        'line-color': '#b86bac',
+        'line-width': 4
+      },
+      'filter': ['==', ['number', ['get', 'date']], 0]
+      },
+     'admin-2-boundaries-dispute',);
 
       map.addLayer({
       id: 'area2009',
