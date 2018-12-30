@@ -378,7 +378,7 @@ document.getElementById('checkbox8').addEventListener('change', function(e) {
 document.getElementById('checkbox8').addEventListener('change', function(e) {
       // update the map
       if (this.checked) 
-      { map.setFilter('street2007', ['==', ['number', ['get', 'date']], 2007]);
+      { map.setFilter('street2007', ['==', ['number', ['get', 'date']], 20070101]);
       }  else
       { map.setFilter('street2007', ['==', ['number', ['get', 'date']], 0]);
       }});
