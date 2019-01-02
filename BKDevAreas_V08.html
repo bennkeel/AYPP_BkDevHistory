@@ -260,6 +260,10 @@ map.on('load', function() {
         type: 'geojson',
         data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
       }, 
+      layout: {
+         "line-join": "round",
+         "line-cap": "round"
+      },
       paint: {
         'line-color': '#b86bac',
         "line-width": {
@@ -269,7 +273,7 @@ map.on('load', function() {
                 [18, 20],
             ],
         },
-        "line-dasharray": [0.1, 1.8]
+        "line-dasharray": [0.1, 1.8],
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
       },
