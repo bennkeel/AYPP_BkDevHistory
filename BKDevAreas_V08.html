@@ -262,11 +262,19 @@ map.on('load', function() {
       }, 
       paint: {
         'line-color': '#b86bac',
-        'line-width': 4
+        "line-width": {
+            'base': 1.5,
+            'stops': [
+                [14, 5],
+                [18, 20],
+            ],
+        },
+        "line-dasharray": [0.1, 1.8]
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
       },
      'admin-2-boundaries-dispute',);
+    
       map.addLayer({
       id: 'area2009',
       type: 'fill',
