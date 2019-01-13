@@ -118,6 +118,21 @@ a {
     <input id='checkbox9' type='checkbox' name='year' value='2009'>
     2009 - PH Historic Dist</label>
   </div>
+        <div class='row' id='filters'>
+    <label for='checkbox10'>
+    <input id='checkbox10' type='checkbox' name='year' value='2005'>
+    2003 - AY Official Plan Debut</label>
+  </div>
+        <div class='row' id='filters'>
+    <label for='checkbox11'>
+    <input id='checkbox11' type='checkbox' name='year' value='195502'>
+    1955 - OMalley Stadium Proposal</label>
+  </div>
+        <div class='row' id='filters'>
+    <label for='checkbox12'>
+    <input id='checkbox12' type='checkbox' name='year' value='195501'>
+    1955 - Cashmore Stadium Proposal</label>
+  </div>
 
 </div>
 </div>
@@ -294,6 +309,23 @@ map.on('load', function() {
       'filter': ['==', ['number', ['get', 'date']], 0]
       },
      'admin-2-boundaries-dispute',);
+    
+               map.addLayer({
+      id: 'area2005',
+      type: 'fill',
+      source: {
+        type: 'geojson',
+        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
+      }, 
+      paint: {
+        'fill-color': '#48c2c5',
+        'fill-opacity': 0.5,
+        'fill-outline-color': 'black'
+      },
+      'filter': ['==', ['number', ['get', 'date']], 0]
+      },
+     'admin-2-boundaries-dispute',);
+    
     document.getElementById('checkbox1').addEventListener('change', function(e) {
       // update the map
       if (this.checked) 
@@ -346,6 +378,15 @@ document.getElementById('checkbox6').addEventListener('change', function(e) {
         this.parentNode.style.backgroundColor = "#b4a182";
       }  else
       { map.setFilter('area2003', ['==', ['number', ['get', 'date']], 0]);
+        this.parentNode.style.backgroundColor = "transparent";
+      }});
+document.getElementById('checkbox10').addEventListener('change', function(e) {
+      // update the map
+      if (this.checked) 
+      { map.setFilter('area2005', ['==', ['number', ['get', 'date']], 2005]);
+        this.parentNode.style.backgroundColor = "#D3D3D3";
+      }  else
+      { map.setFilter('area2005', ['==', ['number', ['get', 'date']], 0]);
         this.parentNode.style.backgroundColor = "transparent";
       }});
 document.getElementById('checkbox7').addEventListener('change', function(e) {
