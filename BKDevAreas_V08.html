@@ -339,6 +339,9 @@ map.on('load', function() {
             ],
         },
         "line-dasharray": [0.1, 1.8],
+        "properties": {
+          "title": 'aaaaaa', // this is a field we can reference in the addLayer with '{title}'
+        }
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
       },
