@@ -57,36 +57,11 @@ a {
   text-align: center;
 }
 }
-        
-#streetKey {
-  position: absolute;
-  top: 10px;
-  left: 230px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
-  width: 100px;
-  padding: 10px 20px;
-  background-color: white;
-}
-.session {
-  margin-bottom: 20px;
-}
-.row {
-  height: 15px;
-  width: 100%;
-  padding-bottom: 10px;
-}
-.label {
-  width: 15%;
-  display: inline-block;
-  text-align: center;
-}
-}
-</style>
+    </style>
 </head>
 <body>
 
-<div id='map'></div>
-
+  <div id='map'></div>
 <div id='console'>
   <h1>Urban Renewal Plans</h1>
   
@@ -126,17 +101,17 @@ a {
   <div class='row' id='filters'>
     <label for='checkbox6'>
     <input id='checkbox6' type='checkbox' name='year' value='2003'>
-    2003 - AY Plan Preview</label>
+    2003 - Atlantic Yards </label>
   </div>
   <div class='row' id='filters'>
     <label for='checkbox10'>
     <input id='checkbox10' type='checkbox' name='year' value='2005'>
-    2003 - AY Plan Debut</label>
+    2003 - AY Official Plan Debut</label>
   </div>
   <div class='row' id='filters' >
     <label for='checkbox7' >
     <input id='checkbox7' type='checkbox' name='year' value='2006' checked='checked' color='#d3d3d3'>
-    2006 - Atlantic Yards Appr.</label>
+    2006 - Atlantic Yards Rev.</label>
   </div>
   <div class='row' id='filters'>
     <label for='checkbox8'>
@@ -160,9 +135,6 @@ a {
   </div>
 
 </div>
-</div>
-<div id='streetKey'>
-    <h2>New Streets</h2>
 </div>
   <script>
     mapboxgl.accessToken = 'pk.eyJ1Ijoia2VlbGJuIiwiYSI6ImNqaWVseGZjZzA3emMzdnAxM296OTFjNG8ifQ.W2j9Y2mz4t6vGRyKJk_Nyw';
@@ -367,9 +339,6 @@ map.on('load', function() {
             ],
         },
         "line-dasharray": [0.1, 1.8],
-        "properties": {
-          "title": 'aaaaaa', // this is a field we can reference in the addLayer with '{title}'
-        }
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
       },
