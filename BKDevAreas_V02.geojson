@@ -509,6 +509,27 @@
     {
       "type": "Feature",
       "properties": {
+        "date": 2005,
+        "name": "Original Atlantic Yards"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -73.970854,
+            40.68162
+          ],
+          [
+            -73.96766,
+            40.680953
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "3c76196d2e653c2c4df013c46af5ad2e"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "date": 20070101
       },
       "geometry": {
@@ -1935,6 +1956,27 @@
     {
       "type": "Feature",
       "properties": {
+        "date": 2003,
+        "name": "Original Atlantic Yards"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -73.975931,
+            40.683509
+          ],
+          [
+            -73.976324,
+            40.682543
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "9ee9732c99cdd3e1c393872fd5147ec3"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "date": 195501,
         "name": "Cashmore Stadium Proposal"
       },
@@ -2377,6 +2419,27 @@
         "type": "Polygon"
       },
       "id": "f2c9135da4b3b0e8f3a723dceaf34e85"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": 2003,
+        "name": "Original Atlantic Yards"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -73.970837,
+            40.681622
+          ],
+          [
+            -73.96768,
+            40.680955
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "f7ccda056d5ae9e9839b1c0eb4a63882"
     },
     {
       "type": "Feature",
