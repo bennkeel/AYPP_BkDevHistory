@@ -233,7 +233,7 @@ map.on('load', function() {
         data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
       }, 
       paint: {
-        'fill-color': '#48c2c5',
+        'fill-color': '#986828',
         'fill-opacity': 0.5,
         'fill-outline-color': 'black'
       },
@@ -263,7 +263,7 @@ map.on('load', function() {
         data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
       }, 
       paint: {
-        'fill-color': '#986828',
+        'fill-color': '#48c2c5',
         'fill-opacity': 0.5,
         'fill-outline-color': 'black'
       },
@@ -392,7 +392,7 @@ document.getElementById('checkbox4').addEventListener('change', function(e) {
       // update the map
       if (this.checked) 
       { map.setFilter('area1970', ['==', ['number', ['get', 'date']], 1970]);
-        this.parentNode.style.backgroundColor = "#b0dddc";
+        this.parentNode.style.backgroundColor = "#b4a182";
       }  else
       { map.setFilter('area1970', ['==', ['number', ['get', 'date']], 0]);
         this.parentNode.style.backgroundColor = "transparent";
@@ -410,7 +410,7 @@ document.getElementById('checkbox6').addEventListener('change', function(e) {
       // update the map
       if (this.checked) 
       { map.setFilter('area2003', ['==', ['number', ['get', 'date']], 2003]);
-        this.parentNode.style.backgroundColor = "#b4a182";
+        this.parentNode.style.backgroundColor = "#b0dddc";
       }  else
       { map.setFilter('area2003', ['==', ['number', ['get', 'date']], 0]);
         this.parentNode.style.backgroundColor = "transparent";
