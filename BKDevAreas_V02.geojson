@@ -509,7 +509,7 @@
     {
       "type": "Feature",
       "properties": {
-        "date": 2005,
+        "date": 20050101,
         "name": "Original Atlantic Yards"
       },
       "geometry": {
@@ -1956,7 +1956,7 @@
     {
       "type": "Feature",
       "properties": {
-        "date": 2003,
+        "date": 20030101,
         "name": "Original Atlantic Yards"
       },
       "geometry": {
@@ -2423,7 +2423,7 @@
     {
       "type": "Feature",
       "properties": {
-        "date": 2003,
+        "date": 20030101,
         "name": "Original Atlantic Yards"
       },
       "geometry": {
