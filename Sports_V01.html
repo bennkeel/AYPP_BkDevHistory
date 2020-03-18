@@ -73,31 +73,19 @@ a {
     <input id='checkbox1' type='checkbox' name='year' value='195502'>
     1955 - OMalley Stadium</label>
   </div>
-        <div class='row' id='filters'>
+
+  <div class='row' id='filters'>
     <label for='checkbox2'>
     <input id='checkbox2' type='checkbox' name='year' value='195501'>
     1955 - Cashmore Stadium</label>
   </div>
-  <div class='row' id='filters'>
-    <label for='checkbox3'>
-    <input id='checkbox3' type='checkbox' name='year' value='2003'>
-    2003 - AY Plan Preview</label>
-  </div>
-  <div class='row' id='filters'>
-    <label for='checkbox4'>
-    <input id='checkbox4' type='checkbox' name='year' value='2005'>
-    2003 - AY Plan Debut</label>
-  </div>
+
   <div class='row' id='filters' >
-    <label for='checkbox5' >
-    <input id='checkbox5' type='checkbox' name='year' value='2006' checked='checked' color='#d3d3d3'>
+    <label for='checkbox3' >
+    <input id='checkbox3' type='checkbox' name='year' value='2006' checked='checked' color='#d3d3d3'>
     2006 - Atlantic Yards Appr.</label>
   </div>
-  <div class='row' id='filters'>
-    <label for='checkbox6'>
-    <input id='checkbox6' type='checkbox' name='year' value='2007'>
-    2007 - Unity Plan</label>
-  </div>
+
 
 </div>
   <script>
@@ -143,90 +131,7 @@ map.on('load', function() {
       },
      'admin-2-boundaries-dispute',);
     
-      map.addLayer({
-      id: 'area2003',
-      type: 'fill',
-      source: {
-        type: 'geojson',
-        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
-      }, 
-      paint: {
-        'fill-color': '#48c2c5',
-        'fill-opacity': 0.5,
-        'fill-outline-color': 'black'
-      },
-      'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
-    
-      map.addLayer({
-      id: 'street2003',
-      type: 'line',
-      source: {
-        type: 'geojson',
-        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
-      }, 
-      layout: {
-         "line-join": "round",
-         "line-cap": "round"
-      },
-      paint: {
-        'line-color': '#48c2c5',
-        "line-width": {
-            'base': .5,
-            'stops': [
-                [14, 2],
-                [18, 5],
-            ],
-        },
-        "line-dasharray": [0.1, 1.8],
-      },
-      'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
-      
-      map.addLayer({
-      id: 'area2005',
-      type: 'fill',
-      source: {
-        type: 'geojson',
-        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
-      }, 
-      paint: {
-        'fill-color': '#f8991d',
-        'fill-opacity': 0.5,
-        'fill-outline-color': 'black'
-      },
-      'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
-    
-    map.addLayer({
-      id: 'street2005',
-      type: 'line',
-      source: {
-        type: 'geojson',
-        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
-      }, 
-      layout: {
-         "line-join": "round",
-         "line-cap": "round"
-      },
-      paint: {
-        'line-color': '#f8991d',
-        "line-width": {
-            'base': .5,
-            'stops': [
-                [14, 2],
-                [18, 5],
-            ],
-        },
-        "line-dasharray": [0.1, 1.8],
-      },
-      'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
-    
+ 
     map.addLayer({
       id: 'area2006',
       type: 'fill',
@@ -242,47 +147,7 @@ map.on('load', function() {
       'filter': ['==', ['number', ['get', 'date']], 2006]
       },
      'admin-2-boundaries-dispute',);
-      map.addLayer({
-      id: 'area2007',
-      type: 'fill',
-      source: {
-        type: 'geojson',
-        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
-      }, 
-      paint: {
-        'fill-color': '#b86bac',
-        'fill-opacity': 0.5,
-        'fill-outline-color': 'black'
-      },
-      'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
-    
-     map.addLayer({
-      id: 'street2007',
-      type: 'line',
-      source: {
-        type: 'geojson',
-        data: 'https://bennkeel.github.io/AYPP_BkDevHistory/BKDevAreas_V02.geojson' 
-      }, 
-      layout: {
-         "line-join": "round",
-         "line-cap": "round"
-      },
-      paint: {
-        'line-color': '#b86bac',
-        "line-width": {
-            'base': .5,
-            'stops': [
-                [14, 2],
-                [18, 5],
-            ],
-        },
-        "line-dasharray": [0.1, 1.8],
-      },
-      'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+
 
 document.getElementById('checkbox1').addEventListener('change', function(e) {
       // update the map
@@ -293,6 +158,7 @@ document.getElementById('checkbox1').addEventListener('change', function(e) {
       { map.setFilter('area195501', ['==', ['number', ['get', 'date']], 0]);
         this.parentNode.style.backgroundColor = "transparent";
       }});
+
 document.getElementById('checkbox2').addEventListener('change', function(e) {
       // update the map
       if (this.checked) 
@@ -306,64 +172,12 @@ document.getElementById('checkbox2').addEventListener('change', function(e) {
 document.getElementById('checkbox3').addEventListener('change', function(e) {
       // update the map
       if (this.checked) 
-      { map.setFilter('area2003', ['==', ['number', ['get', 'date']], 2003]);
-        this.parentNode.style.backgroundColor = "#b0dddc";
-      }  else
-      { map.setFilter('area2003', ['==', ['number', ['get', 'date']], 0]);
-        this.parentNode.style.backgroundColor = "transparent";
-      }});
-document.getElementById('checkbox3').addEventListener('change', function(e) {
-      // update the map
-      if (this.checked) 
-      { map.setFilter('street2003', ['==', ['number', ['get', 'date']], 20030101]);
-      }  else
-      { map.setFilter('street2003', ['==', ['number', ['get', 'date']], 0]);
-      }});
-document.getElementById('checkbox4').addEventListener('change', function(e) {
-      // update the map
-      if (this.checked) 
-      { map.setFilter('area2005', ['==', ['number', ['get', 'date']], 2005]);
-        this.parentNode.style.backgroundColor = "#ffcc66";
-      }  else
-      { map.setFilter('area2005', ['==', ['number', ['get', 'date']], 0]);
-        this.parentNode.style.backgroundColor = "transparent";
-      }});
-document.getElementById('checkbox4').addEventListener('change', function(e) {
-      // update the map
-      if (this.checked) 
-      { map.setFilter('street2005', ['==', ['number', ['get', 'date']], 20050101]);
-        this.parentNode.style.backgroundColor = "#ffcc66";
-      }  else
-      { map.setFilter('street2005', ['==', ['number', ['get', 'date']], 0]);
-        this.parentNode.style.backgroundColor = "transparent";
-      }});
-document.getElementById('checkbox5').addEventListener('change', function(e) {
-      // update the map
-      if (this.checked) 
       { map.setFilter('area2006', ['==', ['number', ['get', 'date']], 2006]);
         this.parentNode.style.backgroundColor = "#D3D3D3";
       }  else
       { map.setFilter('area2006', ['==', ['number', ['get', 'date']], 0]);
         this.parentNode.style.backgroundColor = "transparent";
       }});
-document.getElementById('checkbox6').addEventListener('change', function(e) {
-      // update the map
-      if (this.checked) 
-      { map.setFilter('area2007', ['==', ['number', ['get', 'date']], 2007]);
-        this.parentNode.style.backgroundColor = "#cfb0d0";
-      }  else
-      { map.setFilter('area2007', ['==', ['number', ['get', 'date']], 0]);
-        this.parentNode.style.backgroundColor = "transparent";
-      }});    
-document.getElementById('checkbox6').addEventListener('change', function(e) {
-      // update the map
-      if (this.checked) 
-      { map.setFilter('street2007', ['==', ['number', ['get', 'date']], 20070101]);
-      }  else
-      { map.setFilter('street2007', ['==', ['number', ['get', 'date']], 0]);
-      }});
-
-
 
   });
   </script>
