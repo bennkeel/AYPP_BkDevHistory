@@ -93,8 +93,8 @@ a {
   </div>
   <div class='row' id='filters'>
     <label for='checkbox5'>
-    <input id='checkbox5' type='checkbox' name='year' value='1983'>
-    1983 - RPA</label>
+    <input id='checkbox5' type='checkbox' name='year' value='1984'>
+    1984 - Atlantic Terminal</label>
   </div>
   <div class='row' id='filters'>
     <label for='checkbox6'>
@@ -198,7 +198,7 @@ map.on('load', function() {
      'admin-2-boundaries-dispute',);
     
       map.addLayer({
-      id: 'area1983',
+      id: 'area1984',
       type: 'fill',
       source: {
         type: 'geojson',
@@ -409,10 +409,10 @@ document.getElementById('checkbox4').addEventListener('change', function(e) {
 document.getElementById('checkbox5').addEventListener('change', function(e) {
       // update the map
       if (this.checked) 
-      { map.setFilter('area1983', ['==', ['number', ['get', 'date']], 1983]);
+      { map.setFilter('area1984', ['==', ['number', ['get', 'date']], 1984]);
         this.parentNode.style.backgroundColor = "#7292cb";
       }  else
-      { map.setFilter('area1983', ['==', ['number', ['get', 'date']], 0]);
+      { map.setFilter('area1984', ['==', ['number', ['get', 'date']], 0]);
         this.parentNode.style.backgroundColor = "transparent";
       }});
 document.getElementById('checkbox6').addEventListener('change', function(e) {
