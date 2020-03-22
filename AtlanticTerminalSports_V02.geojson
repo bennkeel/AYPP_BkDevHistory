@@ -594,7 +594,10 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "date": 200506,
+        "name": "Extell Plan"
+      },
       "geometry": {
         "coordinates": [
           [
@@ -1185,7 +1188,10 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "name": "MASNYC",
+        "date": 200606
+      },
       "geometry": {
         "coordinates": [
           [
@@ -1861,12 +1867,12 @@
         "coordinates": [
           [
             [
-              -73.975775,
-              40.683411
+              -73.975906,
+              40.68344
             ],
             [
-              -73.976022,
-              40.682766
+              -73.97618,
+              40.682798
             ],
             [
               -73.973979,
@@ -1877,8 +1883,8 @@
               40.682982
             ],
             [
-              -73.975775,
-              40.683411
+              -73.975906,
+              40.68344
             ]
           ]
         ],
@@ -2044,8 +2050,8 @@
             40.683513
           ],
           [
-            -73.976333,
-            40.682535
+            -73.976334,
+            40.682536
           ]
         ],
         "type": "LineString"
@@ -2408,6 +2414,27 @@
         "type": "Polygon"
       },
       "id": "c7d29291525dbd7041c4d422a91c1afe"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "MASNYC",
+        "date": 20060601
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -73.975917,
+            40.683503
+          ],
+          [
+            -73.97633,
+            40.682511
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cf3e1fd5edf93988e6693004840b3b96"
     },
     {
       "type": "Feature",
