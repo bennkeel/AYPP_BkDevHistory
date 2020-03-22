@@ -493,7 +493,7 @@ map.on('load', function() {
         data: 'https://bennkeel.github.io/AYPP_BkDevHistory/AtlanticTerminalSports_V02.geojson' 
       }, 
       paint: {
-        'fill-color': '#e43225',
+        'fill-color': '#ff9999',
         'fill-opacity': 0.5,
         'fill-outline-color': 'black'
       },
@@ -513,7 +513,7 @@ map.on('load', function() {
          "line-cap": "round"
       },
       paint: {
-        'line-color': '#f8991d',
+        'line-color': '#ff9999',
         "line-width": {
             'base': .5,
             'stops': [
@@ -652,7 +652,7 @@ document.getElementById('checkbox11').addEventListener('change', function(e) {
       // update the map
       if (this.checked) 
       { map.setFilter('area200506', ['==', ['number', ['get', 'date']], 200506]);
-        this.parentNode.style.backgroundColor = "#ffcc66";
+        this.parentNode.style.backgroundColor = "#ffff66";
       }  else
       { map.setFilter('area200506', ['==', ['number', ['get', 'date']], 0]);
         this.parentNode.style.backgroundColor = "transparent";
@@ -661,7 +661,7 @@ document.getElementById('checkbox12').addEventListener('change', function(e) {
       // update the map
       if (this.checked) 
       { map.setFilter('area200606', ['==', ['number', ['get', 'date']], 200606]);
-        this.parentNode.style.backgroundColor = "#ffcc66";
+        this.parentNode.style.backgroundColor = "#ff9999";
       }  else
       { map.setFilter('area200606', ['==', ['number', ['get', 'date']], 0]);
         this.parentNode.style.backgroundColor = "transparent";
@@ -670,7 +670,7 @@ document.getElementById('checkbox12').addEventListener('change', function(e) {
       // update the map
       if (this.checked) 
       { map.setFilter('street200606', ['==', ['number', ['get', 'date']], 20060601]);
-        this.parentNode.style.backgroundColor = "#ffcc66";
+        this.parentNode.style.backgroundColor = "#ff9999";
       }  else
       { map.setFilter('street200606', ['==', ['number', ['get', 'date']], 0]);
         this.parentNode.style.backgroundColor = "transparent";
