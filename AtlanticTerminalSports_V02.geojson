@@ -263,7 +263,7 @@
       "type": "Feature",
       "properties": {
         "name": "MASNYC",
-        "date": 200606
+        "date": 20060601
       },
       "geometry": {
         "coordinates": [
@@ -575,7 +575,7 @@
       "type": "Feature",
       "properties": {
         "name": "MASNYC",
-        "date": 200606
+        "date": 20060601
       },
       "geometry": {
         "coordinates": [
@@ -781,7 +781,10 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "date": 200606,
+        "name": "MASNYC"
+      },
       "geometry": {
         "coordinates": [
           [
@@ -1003,6 +1006,27 @@
         "type": "Polygon"
       },
       "id": "3fdf0ae30de22c174b0acf4323d1534b"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": 20060601,
+        "name": "MASNYC"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -73.970852,
+            40.681615
+          ],
+          [
+            -73.967675,
+            40.680952
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "4163cca5efe76e8ad9189762fa04e24c"
     },
     {
       "type": "Feature",
@@ -1443,7 +1467,7 @@
       "type": "Feature",
       "properties": {
         "name": "MASNYC",
-        "date": 200606
+        "date": 20060601
       },
       "geometry": {
         "coordinates": [
@@ -1499,7 +1523,7 @@
       "type": "Feature",
       "properties": {
         "name": "MASNYC",
-        "date": 200606
+        "date": 20060601
       },
       "geometry": {
         "coordinates": [
