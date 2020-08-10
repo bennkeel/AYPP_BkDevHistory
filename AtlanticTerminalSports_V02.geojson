@@ -2175,41 +2175,6 @@
     {
       "type": "Feature",
       "properties": {
-        "date": 2005,
-        "name": "Atlantic Yards Original"
-      },
-      "geometry": {
-        "coordinates": [
-          [
-            [
-              -73.970816,
-              40.681575
-            ],
-            [
-              -73.967717,
-              40.680926
-            ],
-            [
-              -73.967974,
-              40.680217
-            ],
-            [
-              -73.971094,
-              40.680861
-            ],
-            [
-              -73.970816,
-              40.681575
-            ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "id": "aaa38489301e008ac14677deca1dfa5a"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "name": "BK Sportsplex",
         "date": 1991
       },
