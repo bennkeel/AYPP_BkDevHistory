@@ -358,14 +358,14 @@
       "type": "Feature",
       "properties": {
         "date": 2003,
-        "name": "Original Atlantic Yards"
+        "name": "Atlantic Yards Preview"
       },
       "geometry": {
         "coordinates": [
           [
             [
-              -73.975897,
-              40.683458
+              -73.976188,
+              40.682752
             ],
             [
               -73.976294,
@@ -380,16 +380,16 @@
               40.681551
             ],
             [
-              -73.973752,
-              40.682984
+              -73.973989,
+              40.682285
             ],
             [
-              -73.975774,
-              40.68341
+              -73.975849,
+              40.682681
             ],
             [
-              -73.975897,
-              40.683458
+              -73.976188,
+              40.682752
             ]
           ]
         ],
@@ -435,7 +435,7 @@
       "type": "Feature",
       "properties": {
         "date": 2003,
-        "name": "Original Atlantic Yards"
+        "name": "Atlantic Yards Preview"
       },
       "geometry": {
         "coordinates": [
@@ -1315,6 +1315,45 @@
         "type": "Polygon"
       },
       "id": "5c870437369861606e4005c2eb1c27dd"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": 2003,
+        "name": "Atlantic Yards Preview"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -73.975901,
+              40.683458
+            ],
+            [
+              -73.976181,
+              40.682803
+            ],
+            [
+              -73.973975,
+              40.682322
+            ],
+            [
+              -73.973751,
+              40.682984
+            ],
+            [
+              -73.9758,
+              40.683417
+            ],
+            [
+              -73.975901,
+              40.683458
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "id": "5ca9a812d6f885ad44b3d0300cf823b2"
     },
     {
       "type": "Feature",
@@ -2474,7 +2513,7 @@
       "type": "Feature",
       "properties": {
         "date": 2003,
-        "name": "Original Atlantic Yards"
+        "name": "Atlantic Yards Preview"
       },
       "geometry": {
         "coordinates": [
@@ -2547,26 +2586,6 @@
         "type": "Polygon"
       },
       "id": "dda38973814ded500b4bde94d3c9fb08"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "date": 20070101
-      },
-      "geometry": {
-        "coordinates": [
-          [
-            -73.976574,
-            40.682835
-          ],
-          [
-            -73.967677,
-            40.680955
-          ]
-        ],
-        "type": "LineString"
-      },
-      "id": "ddedf780c9f150d4ef8c6f6bbf3fd5d7"
     },
     {
       "type": "Feature",
@@ -2645,7 +2664,7 @@
       "type": "Feature",
       "properties": {
         "date": 2003,
-        "name": "Original Atlantic Yards"
+        "name": "Atlantic Yards Preview"
       },
       "geometry": {
         "coordinates": [
