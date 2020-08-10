@@ -511,7 +511,8 @@
     {
       "type": "Feature",
       "properties": {
-        "date": 2006
+        "date": 2006,
+        "name": "Atlantic Yards Approved"
       },
       "geometry": {
         "coordinates": [
@@ -1955,6 +1956,27 @@
     {
       "type": "Feature",
       "properties": {
+        "name": "Atlantic Yards Approved",
+        "date": 200601
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -73.97084,
+            40.681626
+          ],
+          [
+            -73.967657,
+            40.680944
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "916fd823975c3be53c1753cdfa4b7224"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "date": 197402,
         "name": "Site 1B"
       },
@@ -2045,12 +2067,12 @@
     {
       "type": "Feature",
       "properties": {
-        "date": 2006
+        "date": 200602
       },
       "geometry": {
         "coordinates": [
-          -73.969434,
-          40.681343
+          -73.969257,
+          40.681286
         ],
         "type": "Point"
       },
