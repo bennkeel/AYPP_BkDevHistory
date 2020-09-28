@@ -1,226 +1,279 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset='utf-8' />
-  <title>Urban Renewal Plans</title>
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <script src='https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
-    <style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
-}
-#map {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-}
-h1 {
-  font-size: 20px;
-  line-height: 25px;
-}
-h2 {
-  font-size: 16px;
-  line-height: 20px;
-  margin-bottom: 10px;
-      margin-top: 10px;
-}
-h3{
-  font-size: 13px;
-  line-height: 12px;
-  margin-bottom: 0px;
-  margin-top: 4px;
-  letter-spacing: 1px;
-  color: #333333;
-  text-indent: 3px;
-}
+	<title>Urban Renewal Plans</title>
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+  <div id='map'>Map</div>
 
-a {
-  text-decoration: none;
-  color: #2dc4b2;
-}
-#console {
-  position: absolute;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
-  width: 240px;
-  margin: 10px;
-  padding: 10px 20px;
-  background-color: white;
-  opacity: 75%
-}
-.session {
-  margin-bottom: 20px;
-}
-.row {
-  height: 16px;
-  width: 100%;
-  padding-top: 4px;
-}
-.date {
-  height: 12px;
-  width: 100%;
-  padding-bottom: 0px;
-  padding-left: 22px;
-}
-.colors {
-  background: linear-gradient(to right, #2dc4b2, #3bb3c3, #669ec4, #8b88b6, #a2719b, #aa5e79);
-  margin-bottom: 5px;
-}
-.label {
-  width: 15%;
-  display: inline-block;
-  text-align: center;
+	<style>
+	body{
+  		font-family:'Helvetica Neue', Helvetica, Arial, Sans-serif;
+ 		  margin: 0;
+  		padding: 0;
+  		-webkit-font-smoothing: antialiased;
+		}
 
-}
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+    
+    h1 {
+      font-size: 20px;
+      line-height: 25px;
+    }
+    h2 {
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 10px;
+          margin-top: 10px;
+    }
+    h3{
+      font-size: 14px;
+      margin-bottom: 0px;
+      letter-spacing: 1px;
+      color: #333333;
+    }
 
-}
-    </style>
+
+    #title {
+      position: absolute;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+      width: 240px;
+      margin: 10px;
+      padding: 10px 20px 0px;
+      background-color: white;
+    }
+
+    #console {
+      position: absolute;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+      width: 280px;
+      margin: 10px;
+      background-color: white;
+      top: 125px;
+      min-height: : 100px;
+      height: 57%;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .session {
+      margin-bottom: 5px;
+      width: 100%;
+      padding-top: 5px;
+      padding-left: 20px;
+      font-weight: bold;
+    }
+
+    .row {
+      height: 16px;
+      width: 100%;
+      padding-top: 4px;
+      background-color: #ffffff
+    }
+    
+    .date {
+      line-height: 50%;
+      width: 100%;
+      font-size: 14px;
+      letter-spacing: 0px;
+      color: #333333;
+    }
+
+    /* CHECKBOX STYLES
+    /* Customize the label (the container) */
+    .container {
+      display: block;
+      position: relative;
+      margin: 1px;
+      height: 40px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* Hide the browser's default checkbox */
+    .container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 40px;
+      width: 100%;
+      text-indent:30px;
+      background-color: transparent;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .container:hover input ~ .checkmark {
+      background-color: #ccc;
+      opacity: 100%;
+    }
+
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .container input:checked ~ .checkmark:after {
+      display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .container .checkmark:after {
+      left: 9px;
+      top: 10px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+
+    #clear{
+
+    }
+
+</style>
 </head>
-<body>
 
-  <div id='map'></div>
-<div id='console'>
+
+<body>
+<div id='title'>
   <h1>Sports Facility Plans Around Atlantic Terminal</h1>
-  
-  <div class='session'>
   <h2>Click to display each plan:</h2>
 
+</div>
 
-  <div class='row' id='filters'>
-    <label for='checkbox1'>
-    <input id='checkbox1' type='checkbox' name='year' value='195502'>
-  Cashmore Stadium</label>
-  </div>
-      <div class='date' >
-    <h3>1955</h3>
-  </div>
+<div id='console'>
 
-        <div class='row' id='filters'>
-    <label for='checkbox2'>
-    <input id='checkbox2' type='checkbox' name='year' value='195501'>
-    O'Malley Stadium</label>
-  </div>
-    <div class='date' >
-    <h3>1955</h3>
-  </div>
+  <! --INSERT CHECKBOXES BELOW -->
 
-  <div class='row' id='filters'>
-    <label for='checkbox3'>
-    <input id='checkbox3' type='checkbox' name='year' value='197401' >
-  NYC Facility Siting 1A</label>
-  </div>
-    <div class='date' >
-    <h3>1974</h3>
-  </div>
+    <div class='session'> Approved Plans </div>
 
-  <div class='row' id='filters'>
-    <label for='checkbox4'>
-    <input id='checkbox4' type='checkbox' name='year' value='197402'>
-  NYC Facility Siting 1B</label>
-  </div>
-    <div class='date' >
-    <h3>1974</h3>
-  </div>
+    <label class = 'container'>
+      <input id='checkbox7' type='checkbox' checked='checked'>
+      <span class="checkmark" color='#d3d3d3'>Atlantic Yards, Updated
+       <div class="date">2005 (May), Approved 2006 (Dec)</div></span>
+    </label>
 
-  <div class='row' id='filters'>
-    <label for='checkbox5'>
-    <input id='checkbox5' type='checkbox' name='year' value='1984'>
-  Pratt Study Atlantic Terminal</label>
-  </div>
-    <div class='date' >
-    <h3>1984</h3>
-  </div>
+    <div class='session'> Proposed Plans </div>
 
-  <div class='row' id='filters'>
-    <label for='checkbox13'>
-    <input id='checkbox13' type='checkbox' name='year' value='1991'>
-    Brooklyn Sportsplex</label>
-  </div>
-  <div class='date' >
-    <h3>1991</h3>
-  </div>
+    <label class = 'container'>
+      <input id='checkbox1' type='checkbox' checked='checked'>
+      <span class="checkmark" color='#d3d3d3'> Cashmore Stadium <div class="date">1955</div></span>
+    </label>
 
-  <div class='row' id='filters'>
-    <label for='checkbox6'>
-    <input id='checkbox6' type='checkbox' name='year' value='2003'>
-    Atlantic Yards Plan Preview</label>
-  </div>
-      <div class='date' >
-    <h3>2003 (June)</h3>
-  </div>
+    <label class = 'container'>
+      <input id='checkbox2' type='checkbox'>
+      <span class="checkmark" color='#d3d3d3'> O'Malley Stadium <div class="date">1955</div></span>
+    </label>
 
-  <div class='row' id='filters'>
-    <label for='checkbox10'>
-    <input id='checkbox10' type='checkbox' name='year' value='2005'>
-    Atlantic Yards Plan Debut</label>
-  </div>
-    <div class='date' >
-    <h3>2003 (December)</h3>
-  </div>
+    <label class = 'container'>
+      <input id='checkbox3' type='checkbox'>
+      <span class="checkmark" color='#d3d3d3'> NYC Facility Siting 1A <div class="date">1974</div></span>
+    </label>
 
-  <div class='row' id='filters'>
-    <label for='checkbox9'>
-    <input id='checkbox9' type='checkbox'>
-    Pacific Plan</label>
-  </div>
-  <div class='date' >
-    <h3>2005</h3>
-  </div>
+    <label class = 'container'>
+      <input id='checkbox4' type='checkbox'>
+      <span class="checkmark" color='#d3d3d3'> NYC Facility Siting 1B 
+        <div class="date">1974</div></span>
+    </label>
 
-  <div class='row' id='filters' >
-    <label for='checkbox7' >
-    <input id='checkbox7' type='checkbox' name='year' value='2006' checked='checked' color='#d3d3d3'>
-    Atlantic Yards, Updated</label>
-  </div>
-  <div class='date' >
-    <h3>2005 (May), Appr. 2006 (Dec)</h3>
-  </div>
+    <label class = 'container'>
+      <input id='checkbox5' type='checkbox'>
+      <span class="checkmark" color='#d3d3d3'> Pratt Study Atlantic Terminal 
+        <div class="date">1984</div></span>
+    </label>
 
-   <div class='row' id='filters'>
-    <label for='checkbox11'>
-    <input id='checkbox11' type='checkbox' name='year' value='200506'>
-    Extell Proposal</label>
-  </div>
-  <div class='date' >
-    <h3>2005 (June)</h3>
-  </div>
+    <label class = 'container'>
+      <input id='checkbox13' type='checkbox'>
+      <span class="checkmark" color='#d3d3d3'> Brooklyn Sportsplex 
+        <div class="date">1991</div></span>
+    </label>
 
-  <div class='row' id='filters'>
-    <label for='checkbox12'>
-    <input id='checkbox12' type='checkbox' name='year' value='200606'>
-    MASNYC Plan Critique</label>
-  </div>
-  <div class='date' >
-    <h3>2006 (June)</h3>
-  </div>
+    <label class = 'container'>
+      <input id='checkbox6' type='checkbox'>
+      <span class="checkmark" color='#d3d3d3'> Atlantic Yards Plan Preview 
+        <div class="date">2003 (June)</div></span>
+    </label>
 
-  <div class='row' id='filters'>
-    <label for='checkbox8'>
-    <input id='checkbox8' type='checkbox' name='year' value='2007'>
-    UNITY Plan</label>
-  </div>
-  <div class='date' >
-    <h3>2005-2007</h3>
-  </div>
+    <label class = 'container'>
+      <input id='checkbox10' type='checkbox'>
+      <span class="checkmark" color='#d3d3d3'> Atlantic Yards Plan Debut 
+        <div class="date">2003 (Dec)</div></span>
+    </label>
 
+    <label class = 'container'>
+      <input id='checkbox9' type='checkbox'>
+      <span class="checkmark" color='#d3d3d3'> Pacific Plan 
+        <div class="date">2005</div></span>
+    </label>
 
+    <label class = 'container'>
+      <input id='checkbox11' type='checkbox'>
+      <span class="checkmark" color='#d3d3d3'> Extell Proposal 
+        <div class="date">2005 (June)</div></span>
+    </label>
 
+    <label class = 'container'>
+      <input id='checkbox12' type='checkbox'>
+      <span class="checkmark" color='#d3d3d3'> MASNYC Plan Critique 
+        <div class="date">2006 (June)</div></span>
+    </label>
+
+    <label class = 'container'>
+      <input id='checkbox8' type='checkbox'>
+      <span class="checkmark" color='#d3d3d3'> UNITY Plan 
+        <div class="date">2005-2007</div></span>
+    </label>
+
+<! --INSERT CHECKBOXES ABOVE -->
 
 </div>
-  <script>
-    mapboxgl.accessToken = 'pk.eyJ1Ijoia2VlbGJuIiwiYSI6ImNqaWVseGZjZzA3emMzdnAxM296OTFjNG8ifQ.W2j9Y2mz4t6vGRyKJk_Nyw';
-    var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/keelbn/cjixxs4x02nlc2rmkg73e5uhg',
-      center: [-73.978, 40.682],
-      zoom: 14.75
-    });
-    checkbox7.parentNode.style.backgroundColor = "#D3D3D3";
-map.on('load', function() {
-    
+
+<script>	
+
+  mapboxgl.accessToken = 'pk.eyJ1Ijoia2VlbGJuIiwiYSI6ImNqaWVseGZjZzA3emMzdnAxM296OTFjNG8ifQ.W2j9Y2mz4t6vGRyKJk_Nyw';
+
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/keelbn/ckfjysc8l1lot19o60a4ro8ug',
+    center: [-73.978, 40.682],
+    zoom: 14.75
+  });
+  
+  checkbox7.parentNode.style.backgroundColor = "#D3D3D3";
+  checkbox1.parentNode.style.backgroundColor = "#999966";
+
+
+  map.on('load', function() {
+
+
     map.addLayer({
       id: 'area195501',
       type: 'fill',
@@ -233,9 +286,8 @@ map.on('load', function() {
         'fill-opacity': 0.5,
         'fill-outline-color': 'black'
       },
-      'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      'filter': ['==', ['number', ['get', 'date']], 195501]
+      }, 'Empty');
     
       map.addLayer({
       id: 'area195502',
@@ -250,8 +302,7 @@ map.on('load', function() {
         'fill-outline-color': 'black'
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
     
     map.addLayer({
       id: 'area197401',
@@ -266,8 +317,7 @@ map.on('load', function() {
         'fill-outline-color': 'black'
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
     
         map.addLayer({
       id: 'area197402',
@@ -282,8 +332,7 @@ map.on('load', function() {
         'fill-outline-color': 'black'
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
     
       map.addLayer({
       id: 'area1984',
@@ -298,8 +347,7 @@ map.on('load', function() {
         'fill-outline-color': 'black'
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
 
       map.addLayer({
       id: 'area1991',
@@ -314,8 +362,7 @@ map.on('load', function() {
         'fill-outline-color': 'black'
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
     
       map.addLayer({
       id: 'area2003',
@@ -330,8 +377,7 @@ map.on('load', function() {
         'fill-outline-color': 'black'
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
     
 
       map.addLayer({
@@ -347,8 +393,7 @@ map.on('load', function() {
         'fill-outline-color': 'black'
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
     
     map.addLayer({
       id: 'street2005',
@@ -374,8 +419,7 @@ map.on('load', function() {
 
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
 
     map.addLayer({
       id: 'point2005',
@@ -385,9 +429,9 @@ map.on('load', function() {
         data: 'https://bennkeel.github.io/AYPP_BkDevHistory/AtlanticTerminalSports_V02.geojson' 
       }, 
       layout: {
-        'icon-image': 'WalkingPath',
+        'icon-image': 'AYPP_Sports_Walker2',
         'icon-anchor': "bottom",
-        'icon-size': 1.5,
+        'icon-size': 1,
       },
       paint: {
          "icon-opacity": {
@@ -396,9 +440,7 @@ map.on('load', function() {
         },
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
-      
+      }, 'Empty');
     
     map.addLayer({
       id: 'area2006',
@@ -410,11 +452,12 @@ map.on('load', function() {
       paint: {
         'fill-color': '#d3d3d3',
         'fill-opacity': 0.4,
-        'fill-pattern': 'Artboard%202%20copy'
+        'fill-pattern': 'AYPP_Sports_Hash1',
+        'fill-outline-color': 'black'
+
       },
       'filter': ['==', ['number', ['get', 'date']], 2006]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
 
     map.addLayer({
       id: 'street2006',
@@ -439,8 +482,7 @@ map.on('load', function() {
         "line-dasharray": [1, 4],
       },
       'filter': ['==', ['number', ['get', 'date']], 200601]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
     
     map.addLayer({
       id: 'point2006',
@@ -450,9 +492,9 @@ map.on('load', function() {
         data: 'https://bennkeel.github.io/AYPP_BkDevHistory/AtlanticTerminalSports_V02.geojson' 
       }, 
       layout: {
-        'icon-image': 'WalkingPath',
+        'icon-image': 'AYPP_Sports_Walker2',
         'icon-anchor': "bottom",
-        'icon-size': 1.5,
+        'icon-size': 1,
       },
       paint: {
          "icon-opacity": {
@@ -461,8 +503,7 @@ map.on('load', function() {
         },
       },
       'filter': ['==', ['number', ['get', 'date']], 200602]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
       
     map.addLayer({
       id: 'area2007',
@@ -477,8 +518,7 @@ map.on('load', function() {
         'fill-outline-color': 'black'
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
     
      map.addLayer({
       id: 'street2007',
@@ -502,8 +542,7 @@ map.on('load', function() {
         },
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
     
       map.addLayer({
       id: 'area200502',
@@ -518,8 +557,7 @@ map.on('load', function() {
         'fill-outline-color': 'black'
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
 
       map.addLayer({
       id: 'street200502',
@@ -544,8 +582,7 @@ map.on('load', function() {
         'line-opacity': 0.5,
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
 
       map.addLayer({
       id: 'area200506',
@@ -560,8 +597,7 @@ map.on('load', function() {
         'fill-outline-color': 'black'
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
 
       map.addLayer({
       id: 'area200606',
@@ -576,8 +612,7 @@ map.on('load', function() {
         'fill-outline-color': 'black'
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
 
       map.addLayer({
       id: 'street200606',
@@ -601,10 +636,8 @@ map.on('load', function() {
         },
       },
       'filter': ['==', ['number', ['get', 'date']], 0]
-      },
-     'admin-2-boundaries-dispute',);
+      }, 'Empty');
 
-    
 
 document.getElementById('checkbox1').addEventListener('change', function(e) {
       // update the map
@@ -628,7 +661,7 @@ document.getElementById('checkbox3').addEventListener('change', function(e) {
       // update the map
       if (this.checked) 
       { map.setFilter('area197401', ['==', ['number', ['get', 'date']], 197401]);
-        this.parentNode.style.backgroundColor = "#cfe295";
+        this.parentNode.style.backgroundColor = "#33cc33";
       }  else
       { map.setFilter('area197401', ['==', ['number', ['get', 'date']], 0]);
         this.parentNode.style.backgroundColor = "transparent";
@@ -637,7 +670,7 @@ document.getElementById('checkbox4').addEventListener('change', function(e) {
       // update the map
       if (this.checked) 
       { map.setFilter('area197402', ['==', ['number', ['get', 'date']], 197402]);
-        this.parentNode.style.backgroundColor = "#b4a182";
+        this.parentNode.style.backgroundColor = "#ffcccc";
       }  else
       { map.setFilter('area197402', ['==', ['number', ['get', 'date']], 0]);
         this.parentNode.style.backgroundColor = "transparent";
@@ -782,10 +815,9 @@ document.getElementById('checkbox13').addEventListener('change', function(e) {
       { map.setFilter('area1991', ['==', ['number', ['get', 'date']], 0]);
         this.parentNode.style.backgroundColor = "transparent";
       }});
-
-
-
+      
   });
+
   </script>
 </body>
 </html>
