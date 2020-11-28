@@ -2197,6 +2197,20 @@
     {
       "type": "Feature",
       "properties": {
+        "name": "Pacific Park"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.97395,
+          40.68228
+        ],
+        "type": "Point"
+      },
+      "id": "af5395ef1a25c2f149cff3ee70bdf54d"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "name": "BK Sportsplex",
         "date": 1991
       },
@@ -2485,27 +2499,6 @@
         "type": "Polygon"
       },
       "id": "c7d29291525dbd7041c4d422a91c1afe"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "date": 20060601,
-        "name": "MASNYC"
-      },
-      "geometry": {
-        "coordinates": [
-          [
-            -73.975917,
-            40.683503
-          ],
-          [
-            -73.97633,
-            40.682511
-          ]
-        ],
-        "type": "LineString"
-      },
-      "id": "cf3e1fd5edf93988e6693004840b3b96"
     },
     {
       "type": "Feature",
